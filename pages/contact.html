@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+    <style type="text/css">
+        /* Mas cajas */
+        .info-box {
+          text-align: center;
+          max-width: 1200px;
+          margin: 40px auto;
+          background-color: #2b2b2b;
+          color: white;
+          padding: 30px;
+          border-radius: 20px;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-box {
+          max-width: 400px;
+          margin: 40px auto;
+          background-color: #2b2b2b;
+          color: white;
+          padding: 30px;
+          border-radius: 20px;
+          filter: drop-shadow(0 0 12px #3b3b3b);
+        }
+
+        /* CSS para el formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 12px;
+        }
+        form label {
+            margin: 10px 0 5px;
+        }
+        form input, form textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #05998c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color .3s;
+        }
+        form button:hover {
+            background-color: #ff8c00;
+        }
+    </style>
+<body>
+        <header class="header compact-header">
+            <div class="logo-bar">
+                <img src="../img/logo-nobg.png" alt="Logo" width="40px" />
+                <span class="brand-name">Rzz's Tech</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <!-- Botón hamburguesa -->
+            <nav class="nav-menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="products.html">Productos</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="section">
+        <div class="info-box">
+        <h2 style="font-weight: bold; color: ghostwhite; font-size: 38px;">Contacto</h2>
+        <p style="font-weight: bold; color: #05998c; font-size: 16px;">¡Somos un equipo de profesionales dedicados a brindar servicios de alta calidad!</p>
+        <h3>Si deseas contactarme para alguna sugerencia, abajo te dejo este formulario.</h3>
+        <h4>"re.mercedes2007@gmail.com" es mi correo</h4>
+    <section class="section">
+        <div class="form-box">
+            <form action="#" name="form" method="POST">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" placeholder="Nombre" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Correo electronico" required>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tu mensaje aqui. Max: 500" required></textarea>
+            <input type="submit" name="send" value="Enviar">
+        </form>
+        </div>
+        <h2>Direccion:</h2>
+        <h5>Calle: Gral. CA Sandino 2055. Estado/provincia/área: Santo Domingo. Número de teléfono: (809) 533-6121.</h5>
+    </div>
+    </section>
+    <script type="text/javascript" src="../js/responsive.js"></script>
+    <footer class="footer">
+        <p>&copy; 2025 Rzz's Tech. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

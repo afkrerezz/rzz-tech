@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<style type="text/css">
+    /* CSS para Servicios */
+    .section { /* Contenido principal */
+        padding: 20px;
+        text-align: center;
+        min-height: 100vh;
+    }
+    .serviceBackground { /* Crea una tarjeta en el area de servicios */
+        background-color: #444;
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        animation: popIn 1s; /* Añadida animación de entrada */
+        transition: .3s;
+    }
+    .serviceBackground:hover {
+        transform: scale(0.95);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+</style>
+<body>
+        <header class="header compact-header">
+            <div class="logo-bar">
+                <img src="../img/logo-nobg.png" alt="Logo" width="40px" />
+                <span class="brand-name">Rzz's Tech</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <!-- Botón hamburguesa -->
+            <nav class="nav-menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="products.html">Productos</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="services" class="section">
+        <h2 style="font-weight: bold; color: ghostwhite; font-size: 38px;">Nuestros Servicios</h2>
+        <a href="form.html" style="text-decoration: none; color: white;">
+        <div class="serviceBackground">
+            <h3>Reparacion de PCs</h3>
+            <p>Reparaciones que van desde lo basico hasta lo intermedio
+        </div> </a>
+        <a href="form.html" style="text-decoration: none; color: white;">
+        <div class="serviceBackground">
+            <h3>Soporte Técnico</h3>
+            <p>Soluciones rápidas y efectivas para tus problemas técnicos.</p>
+        </div>
+        </a>
+        <a href="form.html" style="text-decoration: none; color: white;">
+        <div class="serviceBackground">
+            <h3>Limpieza de PCs</h3>
+            <p>Optimizacion, limpieza y mantenimiento a tu computador o PC</p>
+        </div>
+        </a>
+        <a href="form.html" style="text-decoration: none; color: white;">
+        <div class="serviceBackground">
+            <h3>Instalacion de sistemas y/o programas</h3>
+            <p>Instalaciones de Windows y otros sistemas, tambien Office y otros programas.</p>
+        </div>
+        <a/>
+    </section>
+    <script type="text/javascript" src="../js/responsive.js"></script>
+    <footer class="footer">
+        <p>&copy; 2025 Rzz's Tech. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

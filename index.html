@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rzz's Tech</title>
+        <link rel="stylesheet" href="css/main.css" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <style type="text/css">
+        /* Caja para el "index.html" */
+        .info-box {
+          max-width: 1200px;
+          margin: 40px auto;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+          padding: 2rem;
+          border-radius: 12px;
+          background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .info-box::before {
+          content: "";
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('../img/background.webp');
+          background-size: cover;
+          background-position: center;
+          filter: blur(8px);
+          opacity: 0.5;
+          z-index: -1;
+        }
+
+        .info-box h1 {
+          color: orange;
+          text-align: justify;
+          font-size: 42px;
+        }
+
+        .info-box h3 {
+          color: ghostwhite;
+          text-align: justify;
+        }
+
+        .info-box p {
+          line-height: 1.6;
+          margin-bottom: 16px;
+          text-align: justify;
+          font-size: 20px;
+        }
+
+        /* CSS para chat bot */
+        #chatbot-bubble {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #2b2b2b;
+            color: white;
+            width: 320px;
+            border-radius: 12px;
+            filter: drop-shadow(0 0 12px #048c7f);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: 'Poppins';
+            animation: fadeIn 0.5s ease-out;  /* Animación de deslizamiento */
+        }
+        #chat-header {
+            background-color: #2b2b2b;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #05998c;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        #messages {
+            padding: 10px;
+            height: 300px;
+            overflow-y: auto;
+            background-color: #1f1f1f;
+        }
+
+        #messages p {
+            margin: 5px 0;
+        }
+        .user { color: #05998c; }
+        .bot { color: #ccc; }
+        #input-area {
+            display: flex;
+            border-top: 1px solid #05998c;
+        }
+        #userInput {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            outline: none;
+            background-color: #2a2a2a;
+            color: white;
+        }
+        #toggle-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0;
+        }
+          
+        #toggle-chat img {
+            width: 50px; /* Ajusta el tamaño */
+            height: 50px;
+            border-radius: 12px;
+        }
+    </style>
+    <body>
+        <header class="header compact-header">
+            <div class="logo-bar">
+                <img src="img/logo-nobg.png" alt="Logo" width="40px" />
+                <span class="brand-name">Rzz's Tech</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <!-- Botón hamburguesa -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="pages/services.html">Servicios</a></li>
+                    <li><a href="pages/products.html">Productos</a></li>
+                    <li><a href="pages/about.html">Acerca de</a></li>
+                    <li><a href="pages/contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="home" class="section">
+            <div class="info-box">
+              <h1>Esto es, ¡Rzz's Tech!</h1>
+              <h3>Especialistas en software.</h3>
+              <p>
+                Desde 2015 proveemos instalaciones de software con garantía y calidad,
+                al igual que mantenimientos con precisión y perfección.
+              </p>
+              <p>
+                En Rzz's Tech, nos especializamos en brindar servicios de soporte técnico para garantizar el óptimo funcionamiento de tus dispositivos. Ofrecemos reparación básica de computadoras, asegurándonos de que tu equipo vuelva a estar operativo en el menor tiempo posible. Además, realizamos limpieza y mantenimiento preventivo para prolongar la vida útil de tu computadora y mejorar su rendimiento.
+              </p>
+              <p>
+                También proporcionamos servicios de instalación de software, ayudándote a configurar correctamente los programas que necesitas para tu trabajo o entretenimiento. Nuestro objetivo es ofrecerte soluciones eficientes y accesibles para que puedas aprovechar al máximo tu equipo tecnológico.
+              </p>
+              <p>
+                En la actualidad, también vendemos productos tecnológicos como memorias RAM, pendrives, discos duros y más, a precios accesibles y con garantía. Nuestro compromiso es combinar atención personalizada con soluciones efectivas para cada cliente.
+              </p>
+              <p style="font-weight: bold; color: ghostwhite; font-size: 24px;">
+                ¡Confía en Rzz's Tech para el mejor cuidado de tu computadora y tus dispositivos!
+              </p>
+            </div>
+        </section>
+        <footer class="footer">
+            <p>&copy; 2025 Rzz's Tech. Todos los derechos reservados.</p>
+        </footer>
+        <!-- Botón flotante para abrir el chat -->
+        <button id="toggle-chat" onclick="toggleChat()">
+            <img src="img/chatbot-logo.png" alt="Chatbot" width="50px" />
+        </button>
+
+        <!-- Chatbot -->
+        <div id="chatbot-bubble">
+            <div id="chat-header">
+                <span style="font-size: 28px">🤖</span>
+                <span style="margin-left: 8px">Asistente Tech</span>
+            </div>
+            <div id="messages"></div>
+            <div id="input-area">
+                <input
+                    type="text"
+                    id="userInput"
+                    placeholder="Escribe aquí..."
+                />
+                <button onclick="sendMessage()">▶</button>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/bot.js"></script>
+        <script type="text/javascript" src="js/responsive.js"></script>
+    </body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+        <style type="text/css">
+            /* CSS para productos */
+            .productSection {
+                padding: 20px;
+                text-align: center;
+                min-height: 100vh;
+            }
+            .products {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                animation: popIn 1s; /* Añadida animación de entrada */
+            }
+
+            .products .items {
+                background-color: #444;
+                border-radius: 12px;
+                padding: 20px;
+                margin: 20px;
+                flex: 1 1 calc(25% - 40px);
+                max-width: calc(25% - 40px);
+                transition: .3s;
+            }
+
+            .products .items:hover {
+                transform: scale(1.05);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+
+            .products .items img {
+                width: 100%;
+                border-radius: 12px;
+            }
+
+            .products .items h3 {
+                margin: 10px 0;
+                color: #05998c; /* Azul azulado verde */
+            }
+
+            @media (max-width: 768px) {
+                .products .items {
+                    flex: 1 1 calc(50% - 40px);
+                    max-width: calc(50% - 40px);
+                }
+            }
+
+            @media (max-width: 480px) {
+                .products .items {
+                    flex: 1 1 100%;
+                    max-width: 100%;
+                }
+            }
+
+            /* Buscador de productos */
+            #productSearch {
+              display: block;
+              margin: 30px auto;
+              padding: 10px 15px;
+              font-size: 1rem;
+              width: 90%;
+              max-width: 500px;
+              border-radius: 10px;
+              border: 2px solid #05998c;
+              outline: none;
+              transition: 0.3s ease;
+            }
+            #productSearch:focus {
+              border-color: orange;
+              box-shadow: 0 0 8px orange;
+            }
+
+            /* Carrito de compras */
+            .cart-panel {
+                position: fixed;
+                right: 20px;
+                bottom: 80px;
+                width: 300px;
+                background: #444;
+                border: 2px solid #333;
+                padding: 1rem;
+                border-radius: 10px;
+                display: none;
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                z-index: 1000;
+            }
+            #cart-toggle {
+                position: fixed;
+                right: 20px;
+                bottom: 20px;
+                background: orange;
+                color: white;
+                border: none;
+                padding: 0.5rem 1rem;
+                border-radius: 12px;
+                font-size: 16px;
+                cursor: pointer;
+                box-shadow: 0 0 8px orange;
+            }
+            .add-to-cart {
+                margin-top: 10px;
+                background-color: orange;
+                color: white;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+
+            /* Formulario de ckeck-in */
+            .checkout-form {
+                position: fixed;
+                top: 10%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 400px;
+                background: #444;
+                padding: 1.5rem;
+                border-radius: 15px;
+                box-shadow: 0 0 15px rgba(0,0,0,0.3);
+                z-index: 2000;
+            }
+            .checkout-form h2 {
+                margin-top: 0;
+                text-align: center;
+            }
+            .checkout-form input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 12px;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+            }
+            .checkout-form button {
+                padding: 10px;
+                margin: 5px 0;
+                width: 100%;
+                border: none;
+                border-radius: 10px;
+                background: orange;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .checkout-form button[type="button"] {
+                background: #444;
+            }
+        </style>
+<body>
+        <header class="header compact-header">
+            <div class="logo-bar">
+                <img src="../img/logo-nobg.png" alt="Logo" width="40px" />
+                <span class="brand-name">Rzz's Tech</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <!-- Botón hamburguesa -->
+            <nav class="nav-menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="services.html">Servicios</a></li>
+                <li><a href="products.html">Productos</a></li>
+                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="products" class="productSection">
+        <h2 style="font-weight: bold; color: ghostwhite; font-size: 38px;">Productos</h2>
+        <h3 id="txtProducts">Bienvenido a mi tienda, desde aqui puedo proporcionarte ciertos productos de marcas que recomiendo.</h3>
+        <input type="text" id="productSearch" placeholder="Buscar producto...🔍" />
+        <div class="products">
+            <div class="items">
+                <img src="../img/nobg/pasta_termica-nobg.png" alt="Pasta Térmica">
+                <h3>Pasta Termica - RD$650</h3>
+                <button class="add-to-cart" data-name="Pasta Termica" data-price="650">Añadir al carrito</button>
+            </div>
+            <div class="items">
+                <img src="../img/nobg/pasta_termica2-nobg.png" alt="Pasta Térmica">
+                <h3>Pasta Termica - RD$450</h3>
+                <button class="add-to-cart" data-name="Pasta Termica" data-price="450">Añadir al carrito</button>
+            </div>
+            <div class="items">
+                <img src="../img/nobg/hdd_1-nobg.png" alt="Disco Duro">
+                <h3>Disco duro (HDD) 4TB - RD$7,000</h3>
+                <button class="add-to-cart" data-name="HDD 4TB" data-price="7000">Añadir al carrito</button>
+            </div>
+            <div class="items">
+                <img src="../img/nobg/memoria_1-nobg.png" alt="USB">
+                <h3>Memoria USB 256GB - RD$2,500</h3>
+                <button class="add-to-cart" data-name="USB 256G" data-price="2500">Añadir al carrito</button>
+            </div>
+            <div class="items">
+                <img src="../img/nobg/memoria_2-nobg.png" alt="USB">
+                <h3>Memoria USB 64G - RD$900</h3>
+                <button class="add-to-cart" data-name="USB 64G" data-price="900">Añadir al carrito</button>
+            </div>
+            <div class="items">
+                <img src="../img/nobg/ssd_1-nobg.png" alt="SSD">
+                <h3>Disco de estado sólido (SSD) 512G - RD$4,500</h3>
+                <button class="add-to-cart" data-name="SSD 512G" data-price="4500">Añadir al carrito</button>
+            </div>
+            <div class="items">
+                <img src="../img/nobg/nvme_1-nobg.png" alt="NVMe">
+                <h3>Memoria no volátil (NVMe) 1TB - RD$6,500</h3>
+                <button class="add-to-cart" data-name="NVMe 1TB" data-price="6500">Añadir al carrito</button>
+            </div>
+            <div class="items">
+                <img src="../img/nobg/ram_1-nobg.png" alt="RAM">
+                <h3> Memoria RAM DDR4 2x8 - RD$3,500</h3>
+                <button class="add-to-cart" data-name="RAM 2x8 DDR4" data-price="3500">Añadir al carrito</button>
+            </div>
+            <div class="items">
+                <img src="../img/nobg/sodimm_1-nobg.png" alt="SODIMM">
+                <h3>Memoria RAM para laptop DDR4 8G - RD$1,500</h3>
+                <button class="add-to-cart" data-name="SO-DIMM 8G" data-price="1500">Añadir al carrito</button>
+            </div>
+        </div>
+            <div id="cart-panel" class="cart-panel">
+                <h3>🛒 Tu carrito</h3>
+                <ul id="cart-items"></ul>
+                <button onclick="checkout()">Comprar</button>
+            </div>
+            <button id="cart-toggle" onclick="toggleCart()">🛒 Ver carrito</button>
+            <!--Formulario para check-->
+            <div id="checkout-form" class="checkout-form" style="display: none;">
+            <h2>Finalizar Compra</h2>
+            <div id="selected-items"></div>
+            <form id="purchase-form" onsubmit="return submitOrder(event)">
+                    <label>Dirección de envío:</label>
+                    <input type="text" name="direccion" required>
+
+                    <label>Correo electrónico:</label>
+                    <input type="email" name="correo" required>
+
+                    <button type="submit">Confirmar Pedido</button>
+                    <button type="button" onclick="cancelCheckout()">Cancelar</button>
+                </form>
+            </div>
+    </section>
+    <script type="text/javascript" src="../js/products.js"></script>
+    <script type="text/javascript" src="../js/responsive.js"></script>
+    <footer class="footer">
+        <p>&copy; 2025 Rzz's Tech. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
